@@ -72,9 +72,9 @@ def normalize_string_quotes(leaf: Leaf) -> None:
             if '\\' in str(m):
                 # Do not introduce backslashes in interpolated expressions
                 return
-    if new_quote == '"""' and new_body[-1:] == '"':
+    if new_quote == "'''" and new_body[-1:] == "'":
         # edge case:
-        new_body = new_body[:-1] + '\\"'
+        new_body = new_body[:-1] + "\\'"
     orig_escape_count = body.count('\\')
     new_escape_count = new_body.count('\\')
     if new_escape_count > orig_escape_count:
